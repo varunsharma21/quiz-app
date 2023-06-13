@@ -1,0 +1,22 @@
+.question {
+  margin: 50px;
+  height: 80px;
+  width: 700px;
+}
+
+.option {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.options {
+  width: 700px;
+  margin-top: 0;
+  margin-left: 50px;
+  align-items: flex-start;
+}
+
+.btn__next-question {
+  margin-left: 700px;
+  margin-top: 20px;
+}
