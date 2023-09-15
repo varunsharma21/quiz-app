@@ -1,35 +1,7 @@
 import React, { Fragment, useState } from "react";
 import "./Question.css";
-
-const questions = [
-  {
-    id: "0",
-    question: "Where is India located?",
-    option1: "Asia",
-    option2: "America",
-    option3: "Europe",
-    option4: "None",
-    answer: "Asia",
-  },
-  {
-    id: "1",
-    question: "Where is England located?",
-    option1: "Asia",
-    option2: "America",
-    option3: "Europe",
-    option4: "None",
-    answer: "Europe",
-  },
-  {
-    id: "2",
-    question: "Where is Australia located?",
-    option1: "Asia",
-    option2: "America",
-    option3: "Europe",
-    option4: "None",
-    answer: "None",
-  },
-];
+import { useContext } from "react";
+import context from "../../Store/Context";
 
 //   const savedAnswers = new Array(questions.length);
 
@@ -37,17 +9,21 @@ const questions = [
 // Making it outside component function bcoz,
 // array will get re-intiated and become empty everytime component is re-rendered.
 // eslint-disable-next-line
-const savedAnswers = Array.apply(null, Array(questions.length)).map(
-  // learn about this syntax and related things.
-  function () {}
-);
+
+// const savedAnswers = Array.apply(null, Array(questions.length)).map(
+//   // learn about this syntax and related things.
+//   function () {}
+// );
 
 const Question = () => {
+  const { savedAnswers, questions } = useContext(context);
   const [questionNumber, setQuestionNumer] = useState(0);
-  const [nextButtonText, setNextButtonText] = useState("Next");
+  const [showNextButton, setShowNextButton] = useState(true);
 
   // for handling radio button reset on moving to next question.
   const [radioCheckedValue, setRadioCheckedValue] = useState("");
+
+  // const endTestHandler = () => {};
 
   const nextQuestion = () => {
     setRadioCheckedValue("");
@@ -55,7 +31,7 @@ const Question = () => {
       setQuestionNumer((prevQuestion) => prevQuestion + 1);
     }
     if (questionNumber === questions.length - 2) {
-      setNextButtonText("Submit");
+      setShowNextButton(false);
     }
   };
 
@@ -71,7 +47,6 @@ const Question = () => {
       <div className="question">
         <p>Q. {questions[questionNumber].question}</p>
       </div>
-
       <form action="/action_page.php" className="options">
         <div className="option">
           <input
@@ -125,11 +100,45 @@ const Question = () => {
           <label htmlFor="option-4">{questions[questionNumber].option4}</label>
         </div>
       </form>
-      <button className="btn__next-question" onClick={nextQuestion}>
-        {nextButtonText}
-      </button>
+
+      {/* For hiding 'next' button on last question. */}
+      {showNextButton ? (
+        <button className="btn__next-question" onClick={nextQuestion}>
+          Next
+        </button>
+      ) : null}
     </Fragment>
   );
 };
 
 export default Question;
+
+// const questions = [
+//   {
+//     id: "0",
+//     question: "Where is India located?",
+//     option1: "Asia",
+//     option2: "America",
+//     option3: "Europe",
+//     option4: "None",
+//     answer: "Asia",
+//   },
+//   {
+//     id: "1",
+//     question: "Where is England located?",
+//     option1: "Asia",
+//     option2: "America",
+//     option3: "Europe",
+//     option4: "None",
+//     answer: "Europe",
+//   },
+//   {
+//     id: "2",
+//     question: "Where is Australia located?",
+//     option1: "Asia",
+//     option2: "America",
+//     option3: "Europe",
+//     option4: "None",
+//     answer: "None",
+//   },
+// ];
