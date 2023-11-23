@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext, useEffect, memo } from "react";
 import "./Question.css";
-import { useContext } from "react";
 import context from "../../Store/Context";
+import parse from "html-react-parser";
 
 //   const savedAnswers = new Array(questions.length);
 
@@ -16,9 +16,10 @@ import context from "../../Store/Context";
 // );
 
 const Question = () => {
-  const { savedAnswers, questions } = useContext(context);
-  const [questionNumber, setQuestionNumer] = useState(0);
+  const { savedAnswers, questions, isLoading } = useContext(context);
+  const [questionNumber, setQuestionNumber] = useState(0);
   const [showNextButton, setShowNextButton] = useState(true);
+  const [options, setOptions] = useState([]);
 
   // for handling radio button reset on moving to next question.
   const [radioCheckedValue, setRadioCheckedValue] = useState("");
@@ -28,7 +29,7 @@ const Question = () => {
   const nextQuestion = () => {
     setRadioCheckedValue("");
     if (questionNumber < questions.length - 1) {
-      setQuestionNumer((prevQuestion) => prevQuestion + 1);
+      setQuestionNumber((prevQuestion) => prevQuestion + 1);
     }
     if (questionNumber === questions.length - 2) {
       setShowNextButton(false);
@@ -36,16 +37,35 @@ const Question = () => {
   };
 
   const onChangeHandler = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setRadioCheckedValue(event.target.value);
     savedAnswers[questionNumber] = event.target.value;
     console.log(savedAnswers);
   };
 
+  // make this function st it randoms the options.
+  // console.log(questions[questionNumber].incorrectAnswers);
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * 4);
+    console.log(randomIndex);
+    const updatedOptions = [...questions[questionNumber].incorrectAnswers];
+    updatedOptions.splice(
+      randomIndex,
+      0,
+      questions[questionNumber].correctAnswer
+    );
+    setOptions(updatedOptions);
+    // console.log(options);
+  }, [questionNumber, questions]);
+
   return (
     <Fragment>
+      {/* {options()} */}
       <div className="question">
-        <p>Q. {questions[questionNumber].question}</p>
+        <p>
+          Q.{questionNumber + 1} {parse(questions[questionNumber].question)}
+        </p>
       </div>
       <form action="/action_page.php" className="options">
         <div className="option">
@@ -54,11 +74,11 @@ const Question = () => {
             id="option-1"
             name="option"
             // for handling radio button reset on moving to next question.
-            checked={radioCheckedValue === questions[questionNumber].option1}
-            value={questions[questionNumber].option1}
+            checked={radioCheckedValue === options[0]}
+            value={options[0]}
             onChange={onChangeHandler}
           />
-          <label htmlFor="option-1">{questions[questionNumber].option1}</label>
+          <label htmlFor="option-1">{options[0]}</label>
         </div>
 
         <div className="option">
@@ -67,11 +87,11 @@ const Question = () => {
             id="option-2"
             name="option"
             // for handling radio button reset on moving to next question.
-            checked={radioCheckedValue === questions[questionNumber].option2}
-            value={questions[questionNumber].option2}
+            checked={radioCheckedValue === options[1]}
+            value={options[1]}
             onChange={onChangeHandler}
           />
-          <label htmlFor="option-2">{questions[questionNumber].option2}</label>
+          <label htmlFor="option-2">{options[1]}</label>
         </div>
 
         <div className="option">
@@ -80,11 +100,11 @@ const Question = () => {
             id="option-3"
             name="option"
             // for handling radio button reset on moving to next question.
-            checked={radioCheckedValue === questions[questionNumber].option3}
-            value={questions[questionNumber].option3}
+            checked={radioCheckedValue === options[2]}
+            value={options[2]}
             onChange={onChangeHandler}
           />
-          <label htmlFor="option-3">{questions[questionNumber].option3}</label>
+          <label htmlFor="option-3">{options[2]}</label>
         </div>
 
         <div className="option">
@@ -93,11 +113,11 @@ const Question = () => {
             id="option-4"
             name="option"
             // for handling radio button reset on moving to next question.
-            checked={radioCheckedValue === questions[questionNumber].option4}
-            value={questions[questionNumber].option4}
+            checked={radioCheckedValue === options[3]}
+            value={options[3]}
             onChange={onChangeHandler}
           />
-          <label htmlFor="option-4">{questions[questionNumber].option4}</label>
+          <label htmlFor="option-4">{options[3]}</label>
         </div>
       </form>
 
@@ -111,34 +131,4 @@ const Question = () => {
   );
 };
 
-export default Question;
-
-// const questions = [
-//   {
-//     id: "0",
-//     question: "Where is India located?",
-//     option1: "Asia",
-//     option2: "America",
-//     option3: "Europe",
-//     option4: "None",
-//     answer: "Asia",
-//   },
-//   {
-//     id: "1",
-//     question: "Where is England located?",
-//     option1: "Asia",
-//     option2: "America",
-//     option3: "Europe",
-//     option4: "None",
-//     answer: "Europe",
-//   },
-//   {
-//     id: "2",
-//     question: "Where is Australia located?",
-//     option1: "Asia",
-//     option2: "America",
-//     option3: "Europe",
-//     option4: "None",
-//     answer: "None",
-//   },
-// ];
+export default memo(Question);

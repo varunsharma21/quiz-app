@@ -1,0 +1,66 @@
+.form {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  padding-left: 0;
+  flex-direction: column;
+  height: 100vh;
+  width: 50%;
+  background-color: #f8faff;
+}
+
+.other-sign-in-options {
+  margin-bottom: 25px;
+  margin-left: 300px;
+}
+
+.sign-in-buttons button {
+  width: 150px;
+  padding: 6px 10px 6px 10px;
+  margin-right: 15px;
+  border-radius: 25px;
+  border: none;
+  color: grey;
+  background-color: white;
+  border: 1px solid rgb(196, 193, 193);
+}
+
+.manual-form {
+  margin-left: 320px;
+  /* color: red; */
+}
+
+.manual-form p {
+  margin-top: 10px;
+}
+
+.manual-form input {
+  height: 30px;
+  width: 255px;
+  border-radius: 10px;
+  border: 0.5px solid grey;
+}
+
+.manual-form button {
+  height: 30px;
+  width: 255px;
+  padding: 6px 10px 6px 10px;
+  border-radius: 10px;
+  background-color: #4285f4;
+  color: white;
+  font-weight: 600;
+  border: none;
+}
+
+.forgot-password {
+  color: #4285f4;
+}
+
+button {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+input {
+  margin-top: 10px;
+}

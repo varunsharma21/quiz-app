@@ -9,7 +9,7 @@ function Header() {
   const calculateScore = () => {
     let updatedScore = 0;
     for (let i = 0; i < questions.length; i++) {
-      if (questions[i].answer === savedAnswers[i]) {
+      if (questions[i].correctAnswer === savedAnswers[i]) {
         updatedScore++;
       }
     }
