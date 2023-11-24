@@ -1,0 +1,24 @@
+.header {
+  background-color: teal;
+  height: 80px;
+  margin-top: 0;
+  padding-top: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+h3 {
+  color: white;
+  margin-left: 20px;
+}
+
+.btn__end-test {
+  height: 30px;
+  width: 100px;
+  margin-top: 20px;
+  margin-left: 1100px;
+  color: black;
+  font-weight: bold;
+  background-color: rgb(237, 26, 26);
+  border-radius: 5px;
+}

@@ -1,10 +1,9 @@
 import React from "react";
-import "./WarningModal.css";
+import styles from "./WarningModal.module.css";
 
 function WarningModal(props) {
-  const {} = props;
   return (
-    <div className="modal">
+    <div className={styles.modal}>
       <p>Are you sure you want to submit the test?</p>
       <button>Yes</button>
     </div>

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import "./Header.css";
+import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import context from "../../Store/Context";
 
@@ -32,10 +32,10 @@ function Header() {
   // };
 
   return (
-    <div className="header">
+    <div className={styles.header}>
       <h3>App name</h3>
       <Link to="result">
-        <button className="btn__end-test" onClick={calculateScore}>
+        <button className={styles["btn__end-test"]} onClick={calculateScore}>
           End Test
         </button>
       </Link>

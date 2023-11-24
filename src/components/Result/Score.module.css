@@ -1,0 +1,21 @@
+.container {
+  height: 50vh;
+  width: 30%;
+  background-color: #4285f4;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  border-radius: 25px;
+}
+
+.container button {
+  width: 150px;
+  height: 40px;
+  font-size: 15px;
+  border-radius: 20px;
+  border: none;
+}

@@ -1,0 +1,7 @@
+.modal {
+  height: 400px;
+  width: 600px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}

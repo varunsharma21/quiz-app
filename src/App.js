@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import { Routes, Route } from "react-router-dom";
 // import Login from "./components/Login/Login.jsx";
 import Quiz from "./components/Quiz/Quiz";

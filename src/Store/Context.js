@@ -47,16 +47,14 @@ export const ContextProvider = ({ children }) => {
   //   console.log(questions);
   // });
 
-  // const savedAnswers = Array.apply(null, Array(questions.length)).map(
-  //   function () {}
-  // );
-
   const contextValues = {
     score,
     setScore,
     questions,
     savedAnswers,
     setSavedAnswers,
+    isLoading,
+    fetchQuestions,
   };
 
   return <context.Provider value={contextValues}>{children}</context.Provider>;

@@ -1,8 +1,25 @@
 import React from "react";
 import styles from "./SignInForm.module.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import context from "../../Store/Context";
 
 function SignInForm() {
+  const {
+    score,
+    setScore,
+    questions,
+    savedAnswers,
+    setSavedAnswers,
+    fetchQuestions,
+    isLoading,
+  } = useContext(context);
+
+  const resetQuiz = async () => {
+    setScore(0);
+    setSavedAnswers(Array(20).fill(null));
+  };
+
   return (
     <div className={styles.form}>
       <div className={styles["other-sign-in-options"]}>
