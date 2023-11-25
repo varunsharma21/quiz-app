@@ -1,22 +1,42 @@
 .question {
-  margin: 50px;
-  height: 80px;
-  width: 700px;
+  margin: 50px 0 50px 100px;
+  /* height: 80px; */
+  width: 1000px;
 }
 
 .option {
   margin-top: 10px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option label {
+  margin: 0 0 0 15px;
+}
+
+.option input {
+  height: 20px;
+  width: 20px;
+  margin: 0;
+}
+
+.option p {
 }
 
 .options {
-  width: 700px;
-  margin-top: 0;
-  margin-left: 50px;
+  width: 1000px;
+  margin: 20px 0 0 100px;
   align-items: flex-start;
 }
 
 .btn__next-question {
-  margin-left: 700px;
-  margin-top: 20px;
+  margin-left: 100px;
+  margin-top: 40px;
+  height: 40px;
+  width: 80px;
+  font-size: 15px;
+  border-radius: 30px;
+  border: 1px solid rgb(173, 168, 168);
 }

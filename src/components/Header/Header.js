@@ -14,7 +14,7 @@ function Header() {
       }
     }
     setScore(updatedScore);
-    console.log("Working baby!", score, updatedScore);
+    // console.log("Working!", score, updatedScore);
   };
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function Header() {
 
   return (
     <div className={styles.header}>
-      <h3>App name</h3>
+      <h2>App name</h2>
       <Link to="result">
         <button className={styles["btn__end-test"]} onClick={calculateScore}>
           End Test

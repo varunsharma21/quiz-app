@@ -50,7 +50,6 @@ const Question = () => {
         <p>
           Q.{questionNumber + 1} {parse(questions[questionNumber].question)}
         </p>
-        <p>Hint:- {String(parse(questions[questionNumber].category))}</p>
       </div>
       <form action="/action_page.php" className={styles.options}>
         <div className={styles.option}>

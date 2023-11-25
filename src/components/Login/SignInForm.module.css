@@ -12,6 +12,7 @@
 .other-sign-in-options {
   margin-bottom: 25px;
   margin-left: 300px;
+  width: 52%;
 }
 
 .sign-in-buttons button {
@@ -26,7 +27,8 @@
 }
 
 .manual-form {
-  margin-left: 320px;
+  margin-left: 300px;
+  width: 52%;
   /* color: red; */
 }
 

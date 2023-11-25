@@ -21,9 +21,9 @@ function Score() {
           <h1>😄</h1>
         </>
       )}
-      <Link to={{ pathname: "/", state: { refresh: true } }}>
+      {/* <Link to={{ pathname: "/", state: { refresh: true } }}>
         <button>Back to Home</button>
-      </Link>
+      </Link> */}
     </div>
   );
 }

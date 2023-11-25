@@ -36,7 +36,7 @@ function SignInForm() {
       </div>
 
       <div className={styles["manual-form"]}>
-        <h3>OR</h3>
+        <hr></hr>
         <p>Email address</p>
         <input type="email"></input>
         <p>Password</p>
