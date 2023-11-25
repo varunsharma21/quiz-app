@@ -33,7 +33,7 @@ function Header() {
 
   return (
     <div className={styles.header}>
-      <h2>App name</h2>
+      <h2>Quiz Ninja</h2>
       <Link to="result">
         <button className={styles["btn__end-test"]} onClick={calculateScore}>
           End Test
