@@ -4,7 +4,7 @@ import styles from "./WebAppInfo.module.css";
 function WebAppInfo() {
   return (
     <div className={styles.info}>
-      <h1>Board.</h1>
+      <h1>Quiz Ninja</h1>
     </div>
   );
 }
