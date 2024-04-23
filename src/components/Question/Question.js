@@ -4,7 +4,7 @@ import context from "../../Store/Context";
 import parse from "html-react-parser";
 
 const Question = () => {
-  const { savedAnswers, questions, isLoading, category } = useContext(context);
+  const { savedAnswers, questions } = useContext(context);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [showNextButton, setShowNextButton] = useState(true);
   const [options, setOptions] = useState([]);
@@ -116,42 +116,3 @@ const Question = () => {
 };
 
 export default memo(Question);
-
-// <div className={styles.option}>
-//           <input
-//             type="radio"
-//             id="option-2"
-//             name="option"
-//             // for handling radio button reset on moving to next question.
-//             checked={radioCheckedValue === parse(options[1])}
-//             value={parse(options[1])}
-//             onChange={onChangeHandler}
-//           />
-//           <label htmlFor="option-2">{parse(options[1])}</label>
-//         </div>
-
-//         <div className={styles.option}>
-//           <input
-//             type="radio"
-//             id="option-3"
-//             name="option"
-//             // for handling radio button reset on moving to next question.
-//             checked={radioCheckedValue === parse(options[2])}
-//             value={parse(options[2])}
-//             onChange={onChangeHandler}
-//           />
-//           <label htmlFor="option-3">{parse(options[2])}</label>
-//         </div>
-
-//         <div className={styles.option}>
-//           <input
-//             type="radio"
-//             id="option-4"
-//             name="option"
-//             // for handling radio button reset on moving to next question.
-//             checked={radioCheckedValue === parse(options[3])}
-//             value={parse(options[3])}
-//             onChange={onChangeHandler}
-//           />
-//           <label htmlFor="option-4">{parse(options[3])}</label>
-//         </div>

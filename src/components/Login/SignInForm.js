@@ -1,49 +1,31 @@
 import React from "react";
 import styles from "./SignInForm.module.css";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import context from "../../Store/Context";
+import { useNavigate } from "react-router-dom";
 
 function SignInForm() {
-  const {
-    score,
-    setScore,
-    questions,
-    savedAnswers,
-    setSavedAnswers,
-    fetchQuestions,
-    isLoading,
-  } = useContext(context);
+  const navigate = useNavigate();
 
-  const resetQuiz = async () => {
-    setScore(0);
-    setSavedAnswers(Array(20).fill(null));
+  const submitFormHandler = (e) => {
+    e.preventDefault();
+    navigate("/quiz");
   };
 
   return (
     <div className={styles.form}>
       <div className={styles["other-sign-in-options"]}>
-        <h1>Sign In</h1>
-        <p>Sign in to your account.</p>
-        <div className={styles["sign-in-buttons"]}>
-          <Link to="quiz">
-            <button>Sign In with Google</button>
-          </Link>
-          <Link to="quiz">
-            <button>Sign in as Guest</button>
-          </Link>
-        </div>
+        <h1>Fill the form</h1>
       </div>
 
       <div className={styles["manual-form"]}>
-        <hr></hr>
-        <p>Email address</p>
-        <input type="email"></input>
-        <p>Password</p>
-        <input type="password" />
-        <p className={styles["forgot-password"]}>Forgot Password?</p>
-        <button>Sign In</button>
-        <p>Don't have an account? Register here</p>
+        <form onSubmit={submitFormHandler}>
+          <label>Email address</label>
+          <input type="email" required="true" />
+
+          <label>Full Name</label>
+          <input type="text" required="true" />
+
+          <button type="submit">Sign In</button>
+        </form>
       </div>
     </div>
   );

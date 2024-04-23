@@ -21,19 +21,9 @@ function Header() {
     console.log("Score updated:", score);
   }, [score]);
 
-  // const calculateScore = () => {
-  //   for (let i = 0; i < questions.length; i++) {
-  //     if (questions[i].answer === savedAnswers[i]) {
-  //       console.log("hi");
-  //       setScore((prev) => prev + 1);
-  //     }
-  //   }
-  //   console.log("Working baby!", score);
-  // };
-
   return (
     <div className={styles.header}>
-      <h2>Quiz Ninja</h2>
+      <h2>App name</h2>
       <Link to="result">
         <button className={styles["btn__end-test"]} onClick={calculateScore}>
           End Test
